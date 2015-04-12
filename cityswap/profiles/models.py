@@ -3,6 +3,7 @@ from django.db.models import Q
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 from django.db.models import permalink
+from django.db.models.signals import post_save
 
 
 class Profile(models.Model):
@@ -27,10 +28,6 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
-    def save(self):
-        self.slug = slugify(self.user.username)
-        super(Profile, self).save()
-
     @permalink
     def get_absolute_url(self):
         return ('profile', None, {'slug': self.slug})
@@ -53,3 +50,10 @@ class Profile(models.Model):
 
     def unblock(self, other_profile):
         return self.blocking.remove(other_profile)
+
+
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+post_save.connect(create_user_profile, sender=User)
