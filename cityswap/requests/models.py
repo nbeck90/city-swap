@@ -13,7 +13,8 @@ LOCATION_CHOICES = (
 
 class Request(models.Model):
     sender = models.ForeignKey(Profile, related_name='sent_from')
-    currier = models.ManyToManyField(Profile, related_name='requests')
+    courier = models.ManyToManyField(Profile, related_name='requests', blank=True,
+                              null=True)
 
     description = models.TextField(default="Type your info here")
 

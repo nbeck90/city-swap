@@ -7,4 +7,5 @@ urlpatterns = [
         template_name="requests/requestspage.html",
         ),
         name='requests_page'),
+    url(r'^accept/(?P<pk>\d+)$', views.accept_request, name='accept_request')
 ]
