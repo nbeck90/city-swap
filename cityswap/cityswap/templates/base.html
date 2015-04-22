@@ -7,10 +7,12 @@
         <nav>
             <!-- <h4 class='nav_icon'>Imager</h4> -->
             <div id='navigation_bar'>
+                <a href="{% url 'home' %}" class='nav_icon'>Home</a>
                 {% if user.is_authenticated %}
                 <a href="/accounts/logout" class='nav_icon'>Logout</a>
+                <a href="/profile" class='nav_icon'>Profile</a>
                 {% else %}
-                <a href="/accounts/register" class='nav_icon'>Hello</a>
+                <a href="/accounts/register" class='nav_icon'>Register</a>
                 <a href="/accounts/login" class='nav_icon'>Login</a>
                 {% endif %}
             </div>
