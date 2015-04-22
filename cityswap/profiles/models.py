@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 from django.db.models import permalink
 
-# Create your models here.
 
 class Profile(models.Model):
     """
