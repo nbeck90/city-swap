@@ -24,3 +24,6 @@ class Request(models.Model):
     destination = models.CharField(max_length=2,
                                    choices=LOCATION_CHOICES,
                                    default='se')
+
+    def __unicode__(self):
+        return self.description
