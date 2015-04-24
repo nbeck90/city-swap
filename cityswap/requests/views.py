@@ -4,9 +4,15 @@ from django.views.generic.list import ListView
 from models import Request
 from profiles.models import Profile
 
+
 # Create your views here.
 class RequestListView(ListView):
     model = Request
+
+
+def request_list(request):
+    reqs = Request.objects.orderby('date_created')
+    return render(request, 'requestspage.html', {'object_list': reqs})
 
 
 def accept_request(request, pk):
