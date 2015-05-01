@@ -2,27 +2,41 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>City Swap</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-        <nav>
-            <!-- <h4 class='nav_icon'>Imager</h4> -->
-            <div id='navigation_bar'>
-                <a href="{% url 'home' %}" class='nav_icon'>Home</a>
-                {% if user.is_authenticated %}
-                <a href="/accounts/logout" class='nav_icon'>Logout</a>
-                <a href="/profile" class='nav_icon'>Profile</a>
-                {% else %}
-                <a href="/accounts/register" class='nav_icon'>Register</a>
-                <a href="/accounts/login" class='nav_icon'>Login</a>
-                {% endif %}
-            </div>
-        </nav>
-        <!-- <hr> -->
+      <title>City Swap!</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     </head>
     <body>
+    <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="{% url 'home' %}">CitySwap</a>
+            </div>
+            <div>
+              <ul class="nav navbar-nav">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/accounts/logout">Logout</a></li>
+                {% else %}
+                <li><a href="/accounts/register">Register</a></li>
+                <li><a href="/accounts/login">Login</a></li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </nav>
     {% block content %}
     {% endblock %}
+
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     </body>
-    <footer>
-    </footer>
+    <center>
+    <div class="footer">
+    <p>&copy; Nick and Robert 2015</p>
+    </div>
+    </center>
 <html>
