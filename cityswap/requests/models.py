@@ -1,5 +1,6 @@
 from django.db import models
 from profiles.models import Profile
+from datetime import datetime
 
 
 SEATTLE = 'se'
@@ -25,6 +26,7 @@ class Request(models.Model):
     destination = models.CharField(max_length=2,
                                    choices=LOCATION_CHOICES,
                                    default='se')
+    date_created = models.DateTimeField(default=datetime.now, blank=True)
 
     def __unicode__(self):
         return self.description
