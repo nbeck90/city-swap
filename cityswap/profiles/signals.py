@@ -7,6 +7,5 @@ from profiles.models import Profile
 @receiver(post_save, sender=User)
 def create_profile(sender, **kwargs):
     """When creating a new User also create a new Profile"""
-    print "should be working"
     if kwargs.get('created', False):
         Profile(user=kwargs.get('instance')).save()

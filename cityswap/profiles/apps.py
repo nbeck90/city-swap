@@ -6,5 +6,4 @@ class MyAppConfig(AppConfig):
     name = 'profiles'
 
     def ready(self):
-        print "should be working"
         import signals

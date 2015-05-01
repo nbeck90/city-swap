@@ -10,7 +10,6 @@ class RequestListView(ListView):
 
 
 def accept_request(request, pk):
-    #import pdb; pdb.set_trace()
     req = Request.objects.get(pk=pk)
     profile = Profile.objects.get(user=request.user)
     req.courier.add(profile)

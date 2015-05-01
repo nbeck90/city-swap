@@ -1,7 +1,8 @@
+
 <h1>Requests</h1>
 <ul>
 {% for request in object_list %}
     <li>{{request}}</li>
-    <li><a href="accept/{{ request.pk }}">accept</a></li>
+    <li><a href="accept/{{ request.pk }}" id='accept'>accept</a></li>
 {% endfor %}
 </ul>
