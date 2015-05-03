@@ -6,37 +6,46 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+      <link rel="stylesheet" href='{% static "cover.css" %}'>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     </head>
     <body>
-    <nav class="navbar navbar-default">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <a class="navbar-brand" href="{% url 'home' %}">CitySwap</a>
-            </div>
-            <div>
-              <ul class="nav navbar-nav">
-                <li><a href="{% url 'home' %}">Home</a></li>
-                {% if user.is_authenticated %}
-                <li><a href="/profile">Profile</a></li>
-                <li><a href="/accounts/logout">Logout</a></li>
-                {% else %}
-                <li><a href="/accounts/register">Register</a></li>
-                <li><a href="/accounts/login">Login</a></li>
-                {% endif %}
-              </ul>
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand"><a href="{% url 'home' %}">CitySwap</a></h3>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li><a href="{% url 'home' %}">Home</a></li>
+                  {% if user.is_authenticated %}
+                  <li><a href="/profile">Profile</a></li>
+                  <li><a href="/accounts/logout">Logout</a></li>
+                  <li><a href='/requests'>Requests</a></li>
+                  {% else %}
+                  <li><a href="/accounts/register">Register</a></li>
+                  <li><a href="/accounts/login">Login</a></li>
+                  {% endif %}
+                </ul>
+              </nav>
             </div>
           </div>
-        </nav>
-    {% block content %}
-    {% endblock %}
+          {% block content %}
+            {% endblock %}
+        </div>
+      </div>
+    </div>
+    <div class="mastfoot">
+      <div class="inner">
+        <p>&copy; Cityswap, by Nick and Robert</a>.</p>
+      </div>
+    </div>
 
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     </body>
-    <center>
-    <div class="footer">
-    <p>&copy; Nick and Robert 2015</p>
-    </div>
-    </center>
 <html>

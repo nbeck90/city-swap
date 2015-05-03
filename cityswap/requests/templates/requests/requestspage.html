@@ -1,7 +1,12 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
 <h1>Requests</h1>
+<hr>
 <ul>
 {% for request in object_list %}
-    <li>{{ request }}</li>
-    <li><a href="accept/{{ request.pk }}">accept</a></li>
+    <li>{{ request }} [<a href="accept/{{ request.pk }}">accept</a>]</li>
+    </br>
 {% endfor %}
 </ul>
+{% endblock %}

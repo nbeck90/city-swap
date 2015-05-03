@@ -22,3 +22,7 @@ def accept_request(request, pk):
     req.courier.add(profile)
     req.save()
     return redirect('/requests')
+
+# def my_requests(request, pk):
+#     reqs = Request.courier.get(pk=pk)
+
