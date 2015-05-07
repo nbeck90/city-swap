@@ -1,5 +1,4 @@
-from django.conf.urls import include, url
-from django.contrib import admin
+from django.conf.urls import url
 import views
 
 urlpatterns = [
@@ -7,5 +6,6 @@ urlpatterns = [
         template_name="requests/requestspage.html",
         ),
         name='requests_page'),
-    url(r'^accept/(?P<pk>\d+)$', views.accept_request, name='accept_request')
+    url(r'^accept/(?P<pk>\d+)$', 'requests.views.accept_request', name='accept_request'),
+    url(r'^detail/(?P<pk>\d+)$', 'requests.views.detail_request', name='detail_request'),
 ]

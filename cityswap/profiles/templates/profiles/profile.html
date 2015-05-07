@@ -4,5 +4,12 @@
 <h1>Welcome, {{ user }}!</h1>
 
 <hr>
-Your accepted requests:
+Your accepted requests:</br>
+{{ reqs }}
+
+{% for request in object_list %}
+    <li>{{ request }}</li>
+    </br>
+{% endfor %}
+
 {% endblock %}

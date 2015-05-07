@@ -16,13 +16,14 @@ def request_list(request):
 
 
 def accept_request(request, pk):
-    #import pdb; pdb.set_trace()
+    import pdb; pdb.set_trace()
     req = Request.objects.get(pk=pk)
     profile = Profile.objects.get(user=request.user)
-    req.courier.add(profile)
+    req.courier = profile
     req.save()
     return redirect('/requests')
 
-# def my_requests(request, pk):
-#     reqs = Request.courier.get(pk=pk)
 
+def detail_request(request, pk):
+    req = Request.objects.filter(pk=pk)
+    return render(request, 'requests/requestdetail.html', {'object_list': req})

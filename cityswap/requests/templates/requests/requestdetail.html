@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+    {% for request in object_list %}
+        {{ request }}
+        </br>
+        {% if request.courier %}
+            {{ request.courier }}
+        {% else %}
+            [<a href="/requests/accept/{{ request.pk }}">Accept Request</a>]
+        {% endif %}
+        </br>
+    </br>
+    {% endfor %}
+{% endblock %}

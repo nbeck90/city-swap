@@ -5,7 +5,7 @@
 <hr>
 <ul>
 {% for request in object_list %}
-    <li>{{ request }} [<a href="accept/{{ request.pk }}">accept</a>]</li>
+    <li><a href='detail/{{ request.pk }}'>{{ request.title }}</a></li>
     </br>
 {% endfor %}
 </ul>
