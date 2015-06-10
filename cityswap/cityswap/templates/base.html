@@ -16,6 +16,7 @@
 
       <div class="site-wrapper-inner">
 
+
         <div class="cover-container">
 
           <div class="masthead clearfix">
@@ -24,10 +25,10 @@
               <nav>
                 <ul class="nav masthead-nav">
                   <li><a href="{% url 'home' %}">Home</a></li>
+                  <li><a href='/requests'>Requests</a></li>
                   {% if user.is_authenticated %}
                   <li><a href="/profile">Profile</a></li>
                   <li><a href="/accounts/logout">Logout</a></li>
-                  <li><a href='/requests'>Requests</a></li>
                   {% else %}
                   <li><a href="/accounts/register">Register</a></li>
                   <li><a href="/accounts/login">Login</a></li>
@@ -43,7 +44,7 @@
     </div>
     <div class="mastfoot">
       <div class="inner">
-        <p>&copy; Nick Becker</a></p>
+        <a href="http://www.beckercommanick.com" target="_blank"><p>&copy; Nick Becker</a></p>
       </div>
     </div>
 

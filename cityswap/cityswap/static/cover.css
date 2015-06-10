@@ -35,6 +35,16 @@ body {
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 
+/* SITE SPECIFIC */
+.twitter-widget {
+  width: 200px;
+  border-radius: 40px;
+  margin-right: 25px;
+  position: fixed;
+  bottom: 205px;
+  right: 15px;
+}
+
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
   display: table;

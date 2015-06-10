@@ -2,10 +2,12 @@
 {% load staticfiles %}
 {% block content %}
     {% for request in object_list %}
-        {{ request }}
+        {{ request.sender }}'s request:
+        </br>
+        <h3>{{ request }}</h3>
         </br>
         {% if request.courier %}
-            {{ request.courier }}
+            <h5>Request has been accepted</h5>
         {% else %}
             [<a href="/requests/accept/{{ request.pk }}">Accept Request</a>]
         {% endif %}

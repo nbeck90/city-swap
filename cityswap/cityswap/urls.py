@@ -10,8 +10,6 @@ urlpatterns = [
     url(r'^requests/', include('requests.urls'), name='requests_page'),
     url(r'^accounts/profile/', 'profiles.views.profile', name='profile'),
     url(r'^requests/', include('requests.urls'), name='requests'),
-    # url(r'^blog/', include('blog.urls')),
-
     url(r'^admin/', include(admin.site.urls)),
 ]
 

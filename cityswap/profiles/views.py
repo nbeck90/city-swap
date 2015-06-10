@@ -11,8 +11,4 @@ def profile(request):
     profile = request.user.profile
     req = Request.objects.all()
     reqs = req.filter(courier=profile)
-    context = {
-        'profile': profile,
-        'reqs': reqs
-    }
-    return render(request, 'profiles/profile.html', {'object_list': context})
+    return render(request, 'profiles/profile.html', {'object_list': reqs})
