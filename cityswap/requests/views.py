@@ -38,7 +38,8 @@ class NewRequest(CreateView):
         'title',
         'description',
         'origin',
-        'destination'
+        'destination',
+        'sender'
     ]
 
     def form_valid(self, form):
@@ -47,4 +48,4 @@ class NewRequest(CreateView):
 
     def get_form(self, form_class):
         form = super(NewRequest, self).get_form(form_class)
-        return render('requests/newrequest.html', form)
+        return form

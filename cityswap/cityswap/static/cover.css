@@ -167,6 +167,20 @@ li a {
   font-size: .75em;
 }
 
+td {
+  color: #111;
+  padding-bottom: 20px;
+  padding-left: 10px;
+}
+
+td textarea {
+  height: 50px;
+}
+
+table {
+  margin: auto;
+}
+
 /*
  * Affix and center
  */

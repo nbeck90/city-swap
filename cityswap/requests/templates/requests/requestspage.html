@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% block content %}
 <h1>Requests</h1>
-<a href='new'><h3>Make a new request!</h3></a>
+<a href="{% url 'new_request' %}"><h3>Make a new request!</h3></a>
 <hr>
 <div class='row'>
     <ul>
@@ -10,17 +10,20 @@
         <h2>SEATTLE REQUESTS</h2>
         {% for request in object_list %}
             {% if request.origin = 'Seattle' %}
-            <a href='detail/{{ request.pk }}'>{{ request.title }} {{ request.origin }}</a>
+            <a href='detail/{{ request.pk }}'>{{ request.title }}</a>
             {% endif %}
+            <br>
         {% endfor %}
         </div>
     </ul>
     <ul>
         <div class='col-md-6' style='margin-top: -10px'>
         <h2>PORLAND REQUESTS</h2>
+        <br>
         {% for request in object_list %}
             {% if request.origin = 'Portland' %}
             <a href='detail/{{ request.pk }}'>{{ request.title }}</a>
+            <br>
             {% endif %}
         {% endfor %}
         </div>
