@@ -1,15 +1,10 @@
 {% extends "base.html" %}
-{% load i18n %}
-
-{% block title %}{% trans "Account Activated" %}{% endblock %}
 
 {% block content %}
-<p>
-    {% trans "Your account is now activated." %}
-    {% if not user.is_authenticated %}
-    {% trans "You can log in." %}
-    {% endif %}
-</p>
+
+<h1>Thank you!</h1>
+<h3>Please check your email for a verification email to complete your registration!</h3>
+
 {% endblock %}
 
 

@@ -1,5 +1,26 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
-Your profile
+<h1>Welcome, {{ user }}!</h1>
+
+<div id='profile_picture_area'>
+    {% if profile.picture %}
+        <img class='profile_pic' src="{% static profile.picture.url %}" /></br>
+    {% else %}
+        <img class='profile_pic' src="{% static 'default-user-image.png' %}" /></br>
+    {% endif %}
+</div>
+
+<hr>
+Your accepted requests:
+</br>
+</br>
+{{ reqs }}
+<ul>
+{% for request in object_list %}
+    <li><a href='/requests/detail/{{ request.pk }}'>{{ request.title }}</a></li>
+    </br>
+{% endfor %}
+</ul>
+
 {% endblock %}

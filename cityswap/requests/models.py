@@ -3,8 +3,8 @@ from profiles.models import Profile
 from datetime import datetime
 
 
-SEATTLE = 'se'
-PORTLAND = 'pt'
+SEATTLE = 'Seattle'
+PORTLAND = 'Portland'
 
 LOCATION_CHOICES = (
     (SEATTLE, 'Seattle'),
@@ -14,18 +14,20 @@ LOCATION_CHOICES = (
 
 class Request(models.Model):
     sender = models.ForeignKey(Profile, related_name='sent_from')
-    courier = models.ManyToManyField(Profile, related_name='requests', blank=True,
+    courier = models.ForeignKey(Profile, related_name='requests', blank=True,
                               null=True)
 
-    description = models.TextField(default="Type your info here")
+    title = models.TextField(default="Type your title here")
 
-    origin = models.CharField(max_length=2,
+    description = models.TextField(default="Type your description here")
+
+    origin = models.CharField(max_length=25,
                               choices=LOCATION_CHOICES,
-                              default='se')
+                              default='Seattle')
 
-    destination = models.CharField(max_length=2,
+    destination = models.CharField(max_length=25,
                                    choices=LOCATION_CHOICES,
-                                   default='se')
+                                   default='Seattle')
     date_created = models.DateTimeField(default=datetime.now, blank=True)
 
     def __unicode__(self):
