@@ -11,7 +11,8 @@ class Profile(models.Model):
     user = models.OneToOneField(User, related_name='profile')
 
     picture = models.ImageField(
-        upload_to='photos/', null=True, blank=True, default=None)
+        upload_to='photos', null=True, blank=True, default=None)
+
     slug = models.CharField(max_length=32, unique=True, blank=True)
 
     def __str__(self):
