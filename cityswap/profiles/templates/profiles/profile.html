@@ -1,15 +1,19 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
-<h1>Welcome, {{ user }}!</h1>
+{% load thumbnail %}
+
+<h1>Welcome, {{ user.first_name }}!</h1>
 
 <div id='profile_picture_area'>
-    {% if profile.picture %}
-        <img class='profile_pic' src="{% static profile.picture.url %}" /></br>
+    {% if user.profile.picture %}
+        <img class='profile_pic' src="/{{ user.profile.picture.url }}" /></br>
     {% else %}
         <img class='profile_pic' src="{% static 'default-user-image.png' %}" /></br>
     {% endif %}
 </div>
+
+<small><a href="{% url 'profile_edit' user.id %}">Update my profile</a></small>
 
 <hr>
 Your accepted requests:

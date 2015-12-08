@@ -181,6 +181,11 @@ table {
   margin: auto;
 }
 
+.profile_pic {
+  max-width: 100px;
+  max-height: 100px;
+}
+
 /*
  * Affix and center
  */

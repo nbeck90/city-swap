@@ -24,6 +24,13 @@ def accept_request(request, pk):
     return redirect('/requests')
 
 
+def remove_self(request, pk):
+    req = Request.objects.get(pk=pk)
+    req.courier = None
+    req.save()
+    return redirect('/requests')
+
+
 def detail_request(request, pk):
     req = Request.objects.filter(pk=pk)
     return render(request, 'requests/requestdetail.html', {'object_list': req})
