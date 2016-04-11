@@ -6,7 +6,7 @@ from profiles.views import ProfileUpdateView
 urlpatterns = patterns(
     'profiles.views',
     url(r'^$', 'profile', name='profile'),
-    url(r'^/edit/(?P<pk>\d+)$',
+    url(r'^edit/(?P<pk>\d+)$',
         login_required(ProfileUpdateView.as_view()),
         name='profile_edit'),
 )
