@@ -1,7 +1,11 @@
-from django.test import TestCase
+# from django.test import TestCase
+# from profiles.models import Profile
 
 
-class BaseTest(TestCase):
+# class ProfileTest(TestCase):
+#     def setUp(self):
+#         Profile.objects.create()
 
-    def run(self):
-        self.assertEqual(True, True)
+#     def test_has_no_photo(self):
+#         f = Profile.objects.get(user='Frankie')
+#         self.assertEqual(f.picture, None)
