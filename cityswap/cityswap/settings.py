@@ -33,6 +33,7 @@ REGISTRATION_AUTO_LOGIN = True
 # Application definition
 
 INSTALLED_APPS = (
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -59,10 +60,15 @@ ROOT_URLCONF = 'cityswap.urls'
 
 WSGI_APPLICATION = 'cityswap.wsgi.application'
 
+USER_NAME = os.environ.get('USER')
 DATABASES = {
-    'default': dj_database_url.config(
-        default='postgres://postgres:@localhost:5432/city_swap_db'
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'city_swap_db',
+        'USER': USER_NAME,
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
 }
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
