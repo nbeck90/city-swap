@@ -13,6 +13,9 @@
             [<a href="/requests/accept/{{ request.pk }}">Accept Request</a>]
         {% endif %}
         </br>
+        {% if request.sender == user.profile %}
+        <a href="/requests/delete/{{ request.pk }}">Delete this request</a>
+        {% endif %}
     </br>
     {% endfor %}
 {% endblock %}

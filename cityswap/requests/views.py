@@ -24,6 +24,12 @@ def accept_request(request, pk):
     return redirect('/requests')
 
 
+def delete_request(request, pk):
+    req = Request.objects.get(pk=pk)
+    req.delete()
+    return redirect('/requests')
+
+
 def remove_self(request, pk):
     req = Request.objects.get(pk=pk)
     req.courier = None

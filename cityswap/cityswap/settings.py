@@ -24,7 +24,7 @@ SECRET_KEY = 'vqkgu^x)#ofqa5_e94h!31gcbp!zv7^&en%ykxu3d2kfx3hsz)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = []
 
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
@@ -32,7 +32,6 @@ REGISTRATION_AUTO_LOGIN = True
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
