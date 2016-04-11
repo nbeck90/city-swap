@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 from django.views.generic import CreateView
-
 from models import Request
 from profiles.models import Profile
 
@@ -43,6 +42,12 @@ def detail_request(request, pk):
 
 
 class NewRequest(CreateView):
+    def get_initial(self):
+        """Return the initial data to use for forms on this view."""
+        initial = super(NewRequest, self).get_initial()
+        initial['sender'] = self.request.user
+        return initial
+
     model = Request
     context_object_name = 'request'
     success_url = '/profile'
@@ -51,11 +56,10 @@ class NewRequest(CreateView):
         'description',
         'origin',
         'destination',
-        'sender'
     ]
 
     def form_valid(self, form):
-        form.instance.user = self.request.user
+        form.instance.sender = self.request.user.profile
         return super(NewRequest, self).form_valid(form)
 
     def get_form(self, form_class):
