@@ -3,4 +3,4 @@ Django==1.9.5
 django-registration-redux==1.4
 Pillow==2.8.1
 psycopg2==2.6
-sorl-thumbnail==12.2
+sorl-thumbnail==12.3
