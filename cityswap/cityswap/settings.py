@@ -25,7 +25,7 @@ SECRET_KEY = 'vqkgu^x)#ofqa5_e94h!31gcbp!zv7^&en%ykxu3d2kfx3hsz)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'profiles',
     'registration',
     'requests',
+    'sorl.thumbnail'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -99,7 +100,7 @@ STATICFILES_DIRS = (
     ),
 )
 
-MEDIA_URL = '/media/'
+MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 TEMPLATE_DIRS = (

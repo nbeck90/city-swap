@@ -2,12 +2,13 @@
 {% load staticfiles %}
 {% block content %}
     {% for request in object_list %}
-        {{ request.sender }}'s request:
-        </br>
+        <h3>{{ request.sender }}'s request:</h3>
+        <hr>
         <h3>{{ request }}</h3>
         </br>
         {% if request.courier %}
             <h5>Request has been accepted</h5>
+            <a href="/requests/remove/{{ request.pk }}">Remove yourself</a>
         {% else %}
             [<a href="/requests/accept/{{ request.pk }}">Accept Request</a>]
         {% endif %}
